@@ -49,6 +49,7 @@ enum EmployeeRouter: RequestInfoConvertible {
             return nil
         case .insertEmployeeRecord(let employee):
             let param  = ["name":employee.name,"salary":employee.salary,"age":employee.age]
+            debugPrint("param",param)
             do {
                 return try JSONSerialization.data(withJSONObject: param)
             } catch {
@@ -70,6 +71,8 @@ enum EmployeeRouter: RequestInfoConvertible {
         }
         // Set other property, like headers, parameters for requestInfo here
         
+        debugPrint("urlString",urlString)
+        debugPrint("method",method.rawValue)
         return requestInfo
     }
 }

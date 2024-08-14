@@ -39,9 +39,6 @@ class NetworkClient: NetworkProvider {
                     throw NetworkError.somethingWentWrong(msg: "Invalid response")
                 }
             }
-            .mapError({ error in
-                return error
-            })
             .eraseToAnyPublisher()
     }
 }

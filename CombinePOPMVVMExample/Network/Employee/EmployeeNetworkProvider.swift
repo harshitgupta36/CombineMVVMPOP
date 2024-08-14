@@ -23,9 +23,6 @@ class EmployeeNetworkClient: EmployeeNetworkProvider {
             .tryMap({ responsModel in
                 return responsModel.data
             })
-            .mapError({ error in
-                return error
-            })
             .eraseToAnyPublisher()
     }
     
@@ -34,9 +31,6 @@ class EmployeeNetworkClient: EmployeeNetworkProvider {
             .decode(type: EmployeeResponseModel<AddEmployeeDataModel>.self, decoder: JSONDecoder())
             .tryMap({ responsModel in
                 return responsModel.data
-            })
-            .mapError({ error in
-                return error
             })
             .eraseToAnyPublisher()
     }
